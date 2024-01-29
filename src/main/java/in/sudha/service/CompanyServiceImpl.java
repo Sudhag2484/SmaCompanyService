@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.sudha.entity.Company;
+import in.sudha.exception.CompanyNotFoundException;
 import in.sudha.repo.CompanyRepository;
 
 @Service
@@ -36,7 +37,7 @@ if(cob.getId()!=null && repo.existsById(cob.getId()))
 	public Company getOneCompany(Long id) {
 Optional<Company> opt = repo.findById(id);
 if(opt.isEmpty()) {
-	return null;//TODO :
+throw new CompanyNotFoundException("Given '"+id+"' Not Exist");
 }else {
 	return opt.get();
 

@@ -14,5 +14,7 @@ public interface CompanyService {
 	
 	Company getOneCompany(Long id);
 	
+	//void deleteOneComapany();
+	
 
 }
